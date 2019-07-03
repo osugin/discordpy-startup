@@ -23,6 +23,8 @@ async def on_message(message):
     if message.content == '/neko':
         await message.channel.send('にゃーん')
 
+    # 「/じー」と発言したら「じ、じろじろ見てんじゃないわよ！！ぶっ殺すわよ！？」が返る処理
+    if message.content == '/じー':
+        await message.channel.send('じ、じろじろ見てんじゃないわよ！！ぶっ殺すわよ！？')
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
-

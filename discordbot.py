@@ -33,14 +33,6 @@ async def on_message(message):
         reply = f'{message.author.mention} なによ！？呼んだ？' # 返信メッセージの作成
         await message.channel.send(reply) # 返信メッセージを送信
 
-# 新規メンバー参加時のイベントハンドラ
-@client.event
-async def on_member_join(member):
-    guild = member.guild # サーバー
-    sysch = guild.system_channel # 参加メッセージを表示するチャンネル
-    if sysch: # チャンネルが設定されてなかったら何もしない
-        text = f'{member.mention} いらっしゃいませ'
-        await sysch.send(text)
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)

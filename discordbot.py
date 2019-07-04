@@ -22,7 +22,9 @@ async def on_message(message):
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
         await message.channel.send('にゃーん')
-
+    # メッセージ送信者がBotだった場合は無視する
+    if message.author.bot:
+        return
     # 「/じー」と発言したら「じ、じろじろ見てんじゃないわよ！！ぶっ殺すわよ！？」が返る処理
     if message.content == '/じー':
         await message.channel.send('じ、じろじろ見てんじゃないわよ！！ぶっ殺すわよ！？')
@@ -30,4 +32,3 @@ async def on_message(message):
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
-

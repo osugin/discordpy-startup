@@ -26,7 +26,6 @@ async def on_message(message):
     # 「/じー」と発言したら「じ、じろじろ見てんじゃないわよ！！ぶっ殺すわよ！？」が返る処理
     if message.content == '/じー':
         await message.channel.send('じ、じろじろ見てんじゃないわよ！！ぶっ殺すわよ！？')
-
 # 話しかけた人に返信する
 @client.event
 async def on_message(message):

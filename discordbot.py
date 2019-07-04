@@ -26,5 +26,13 @@ async def on_message(message):
     # 「/じー」と発言したら「じ、じろじろ見てんじゃないわよ！！ぶっ殺すわよ！？」が返る処理
     if message.content == '/じー':
         await message.channel.send('じ、じろじろ見てんじゃないわよ！！ぶっ殺すわよ！？')
+# 話しかけた人に返信する
+@client.event
+async def on_message(message):
+    if client.user in message.mentions: # 話しかけられたかの判定
+        reply = f'{message.author.mention} なによ！？呼んだ？' # 返信メッセージの作成
+        await message.channel.send(reply) # 返信メッセージを送信
+
+
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)

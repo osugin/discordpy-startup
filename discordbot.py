@@ -80,6 +80,10 @@ async def on_message(message):
         embed.add_field(name="[運勢] ", value=random.choice(('大吉', '吉', '凶', '大凶')), inline=False)
         await message.channel.send(embed=embed)
 
+# クラバトについてのコード
+    CHANNEL_ID = 596583155578961935
+
+
     if message.content == "3凸終了":
 
         channel = client.get_channel(CHANNEL_ID)

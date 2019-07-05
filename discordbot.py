@@ -13,6 +13,15 @@ async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('ログインしました')
         
+# 新規メンバー参加時のイベントハンドラ
+@client.event
+async def on_member_join(member):
+    guild = member.guild # サーバー
+    sysch = guild.system_channel # 参加メッセージを表示するチャンネル
+    if sysch: # チャンネルが設定されてなかったら何もしない
+        text = f'{member.mention} いらっしゃいませ'
+        await sysch.send(text)
+
 # メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):

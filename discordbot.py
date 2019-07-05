@@ -1,5 +1,6 @@
 # インストールした discord.py を読み込む
 import discord
+import random  # おみくじで使用
 
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'

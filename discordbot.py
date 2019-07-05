@@ -22,11 +22,6 @@ async def on_member_join(member):
         text = f'{member.mention} よく来たわね！ゆっくりして行くといいわ！'
         await sysch.send(text)
 
-@client.command()
-async def test(ctx):
-    embed_message = discord.Embed(description='test')
-    dm_channel = await ctx.author.create_dm()
-    await dm_channel.send(embed=embed_message)
 
 # メッセージ受信時に動作する処理
 @client.event

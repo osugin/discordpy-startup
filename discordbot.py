@@ -63,12 +63,6 @@ async def on_message(message):
     if message.content == '/つかれた':
         await message.channel.send('ゆっくりする？')
 
-@client.event
-async def on_message(message):
-    """メッセージを処理"""
-    if message.author.bot:  # ボットのメッセージをハネる
-        return
-
     if message.content == "!眠たい":
         # チャンネルへメッセージを送信
         await message.channel.send(f"{message.author.mention}さん 寝ましょう")  # f文字列（フォーマット済み文字列リテラル）

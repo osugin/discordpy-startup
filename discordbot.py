@@ -19,8 +19,14 @@ async def on_member_join(member):
     guild = member.guild # サーバー
     sysch = guild.system_channel # 参加メッセージを表示するチャンネル
     if sysch: # チャンネルが設定されてなかったら何もしない
-        text = f'{member.mention} いらっしゃいませ'
+        text = f'{member.mention} よく来たわね！ゆっくりして行くといいわ！'
         await sysch.send(text)
+
+@client.command()
+async def test(ctx):
+    embed_message = discord.Embed(description='test')
+    dm_channel = await ctx.author.create_dm()
+    await dm_channel.send(embed=embed_message)
 
 # メッセージ受信時に動作する処理
 @client.event

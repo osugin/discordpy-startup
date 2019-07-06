@@ -1,6 +1,7 @@
 # インストールした discord.py を読み込む
 import discord
 import random  # おみくじで使用
+import random  # diceで使用
 
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'
@@ -33,7 +34,7 @@ async def on_member_join(member):
 @client.event
 async def on_message(message):
 
-    if message.content == "dice":
+    if message.content == '!dice':
     dice = random.randint(1, 6) #出る目を指定
     await message.send_message(message.channel, str(dice))
 

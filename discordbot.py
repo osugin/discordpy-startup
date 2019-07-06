@@ -34,10 +34,6 @@ async def on_member_join(member):
 @client.event
 async def on_message(message):
 
-    if message.content == '!dice':
-    dice = random.randint(1, 6) #出る目を指定
-    await message.send_message(message.channel, str(dice))
-
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
@@ -103,6 +99,11 @@ async def on_message(message):
             m = "おはよう！今日の頑張って！" + message.author.name + "！"
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await message.channel.send(m)
+
+if message.content == '!dice':
+    dice = random.randint(1, 6) #出る目を指定
+    await message.send_message(message.channel, str(dice))
+
 
 
 # クラバトについてのコード

@@ -102,6 +102,36 @@ async def on_message(message):
 
 # クラバトについてのコード
     CHANNEL_ID = 596583155578961935
+    boss1 = "ワイバーン"
+    boss2 = "ライライ"
+    boss3 = "？？？"
+    boss4 = "？？？"
+    boss5 = "？？？"
+
+    if message.content == "/1st":
+        
+        channel = client.get_channel(CHANNEL_ID1)
+        await channel.send(f"<@&{roles1}> ワイバーン")
+        
+    if message.content == "/2nd":
+        
+        channel = client.get_channel(CHANNEL_ID1)
+        await channel.send(f"<@&{roles1}> ライライ")    
+
+    if message.content == "/3rd":
+        
+        channel = client.get_channel(CHANNEL_ID1)
+        await channel.send(f"<@&{roles1}> ？？？") 
+        
+    if message.content == "/4th":
+        
+        channel = client.get_channel(CHANNEL_ID1)
+        await channel.send(f"<@&{roles1}> ？？？") 
+        
+    if message.content == "/5th":
+        
+        channel = client.get_channel(CHANNEL_ID1)
+        await channel.send(f"<@&{roles1}> ？？？") 
 
 
     if message.content == "3凸終了":

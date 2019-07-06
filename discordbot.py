@@ -32,8 +32,9 @@ async def on_member_join(member):
 # メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):
-    """メンバー募集 (.rect@数字)"""
-    if message.content.startswith(".rect"):
+
+    """メンバー募集 (!rect@数字)"""
+    if message.content.startswith("!rect"):
         mcount = int(message.content[6:len(message.content)])
         text= "あと{}人 募集中\n"
         revmsg = text.format(mcount)
@@ -42,8 +43,8 @@ async def on_message(message):
         msg = await client.send_message(message.channel, revmsg)
 
         #投票の欄
-        await client.add_reaction(msg, '\u21a9')
-        await client.add_reaction(msg, '⏫')
+        await client.add_reaction(msg, '596933958428655616')
+        await client.add_reaction(msg, '596934333944692761')
         await client.pin_message(msg)
 
         #リアクションをチェックする
@@ -63,12 +64,11 @@ async def on_message(message):
                         await client.edit_message(msg, text.format(mcount) +
                                                         '\n'.join(frelist))
                             #メッセージを書き換え
-
                     else:
                         pass
                 #==============================================================
                 #押された絵文字が既存のものの場合　>> 右　add
-                elif target_reaction.reaction.emoji == '⏫':
+                elif target_reaction.reaction.emoji == '596934333944692761':
                     if target_reaction.user.name in frelist:
                         pass
 
@@ -89,7 +89,6 @@ async def on_message(message):
                 #==============================================================
         else:
             await client.edit_message(msg, '募集終了\n'+ '\n'.join(frelist))
-
 
 
     # メッセージ送信者がBotだった場合は無視する

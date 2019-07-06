@@ -98,11 +98,12 @@ async def on_message(message):
             # メッセージを書きます
             m = "おはよう！今日の頑張って！" + message.author.name + "！"
             # メッセージが送られてきたチャンネルへメッセージを送ります
-            await message.channel.send(m)
+            await message.channel.send()
 
 if message.content == '!dice':
     dice = random.randint(1, 6) #出る目を指定
-    await message.send_message(message.channel, str(dice))
+    await message.channel.send(message.channel, str(dice))
+
 
 
 

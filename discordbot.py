@@ -81,6 +81,16 @@ async def on_message(message):
         embed.add_field(name="[運勢] ", value=random.choice(('大吉', '吉', '凶', '大凶')), inline=False)
         await message.channel.send(embed=embed)
 
+    # 「!おはよう」で始まるか調べる
+    if message.content.startswith("!おはよう"):
+        # 送り主がBotだった場合反応したくないので
+        if client.user != message.author:
+            # メッセージを書きます
+            m = "おはよう！今日の頑張って！" + message.author.name + "さん！"
+            # メッセージが送られてきたチャンネルへメッセージを送ります
+            await message.channel.send(m)
+
+
 # クラバトについてのコード
     CHANNEL_ID = 596583155578961935
 

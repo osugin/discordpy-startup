@@ -107,30 +107,32 @@ async def on_message(message):
     boss3 = "？？？"
     boss4 = "？？？"
     boss5 = "？？？"
+    roles1 = 596582248757592077
+
 
     if message.content == "/1st":
         
-        channel = client.get_channel(CHANNEL_ID1)
+        channel = client.get_channel(CHANNEL_ID)
         await channel.send(f"<@&{roles1}> ワイバーン")
         
     if message.content == "/2nd":
         
-        channel = client.get_channel(CHANNEL_ID1)
+        channel = client.get_channel(CHANNEL_ID)
         await channel.send(f"<@&{roles1}> ライライ")    
 
     if message.content == "/3rd":
         
-        channel = client.get_channel(CHANNEL_ID1)
+        channel = client.get_channel(CHANNEL_ID)
         await channel.send(f"<@&{roles1}> ？？？") 
         
     if message.content == "/4th":
         
-        channel = client.get_channel(CHANNEL_ID1)
+        channel = client.get_channel(CHANNEL_ID)
         await channel.send(f"<@&{roles1}> ？？？") 
         
     if message.content == "/5th":
         
-        channel = client.get_channel(CHANNEL_ID1)
+        channel = client.get_channel(CHANNEL_ID)
         await channel.send(f"<@&{roles1}> ？？？") 
 
 

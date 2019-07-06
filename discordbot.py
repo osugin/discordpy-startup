@@ -35,37 +35,37 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == '/neko':
+    # 「!neko」と発言したら「にゃーん」が返る処理
+    if message.content == '!neko':
         await message.channel.send('にゃーん')
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    # 「/じー」と発言したら「こっち見んな！！ぶっ殺すわよ！？」が返る処理
-    if message.content == '/じー':
+    # 「!じー」と発言したら「こっち見んな！！ぶっ殺すわよ！？」が返る処理
+    if message.content == '!じー':
         await message.channel.send('こっち見んな！！ぶっ殺すわよ！？')
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    # 「/キャルちゃん」と発言したら「なによ！なんか用？」が返る処理
-    if message.content == '/キャルちゃん':
+    # 「!キャルちゃん」と発言したら「なによ！なんか用？」が返る処理
+    if message.content == '!キャルちゃん':
         await message.channel.send('なによ！なんか用？')
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    # 「/ねぇねぇ」と発言したら「触んな！」が返る処理
-    if message.content == '/ねぇねぇ':
+    # 「!ねぇねぇ」と発言したら「触んな！」が返る処理
+    if message.content == '!ねぇねぇ':
         await message.channel.send('触んな！')
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    # 「/つかれた」と発言したら「ゆっくりする？」が返る処理
-    if message.content == '/つかれた':
+    # 「!つかれた」と発言したら「ゆっくりする？」が返る処理
+    if message.content == '!つかれた':
         await message.channel.send('ゆっくりする？')
 
     if message.content == "!眠たい":
         # チャンネルへメッセージを送信
-        await message.channel.send(f"{message.author.mention}さん 寝ましょう")  # f文字列（フォーマット済み文字列リテラル）
+        await message.channel.send(f"{message.author.mention}さん 仕方ないわね！寝ていいわよ！")  # f文字列（フォーマット済み文字列リテラル）
 
     elif message.content == "!投票":
         # リアクションアイコンを付けたい

@@ -81,12 +81,21 @@ async def on_message(message):
         embed.add_field(name="[運勢] ", value=random.choice(('大吉', '吉', '凶', '大凶')), inline=False)
         await message.channel.send(embed=embed)
 
-    # 「!おはよう」で始まるか調べる
+    # 「!おつかれ」で始まるか調べる
+    if message.content.startswith("!おつかれ"):
+        # 送り主がBotだった場合反応したくないので
+        if client.user != message.author:
+            # メッセージを書きます
+            m = "おつかれさま！今日もよくがんばったわね！ゆっくり休むのよ！" + message.author.name + "！"
+            # メッセージが送られてきたチャンネルへメッセージを送ります
+            await message.channel.send(m)
+
+# 「!おはよう」で始まるか調べる
     if message.content.startswith("!おはよう"):
         # 送り主がBotだった場合反応したくないので
         if client.user != message.author:
             # メッセージを書きます
-            m = "おはよう！今日の頑張って！" + message.author.name + "さん！"
+            m = "おはよう！今日の頑張って！" + message.author.name + "！"
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await message.channel.send(m)
 
@@ -98,7 +107,7 @@ async def on_message(message):
     if message.content == "3凸終了":
 
         channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"本日の{message.author}さんの凸は終了です、お疲れ様でした")
+        await channel.send(f"本日の{message.author.name}さんの凸は終了です、お疲れ様でした")
 
     elif message.content == "!ダイレクトメッセージ":
         # ダイレクトメッセージ送信

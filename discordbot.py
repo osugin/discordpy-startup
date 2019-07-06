@@ -66,7 +66,7 @@ async def on_message(message):
 
     if message.content == "!眠たい":
         # チャンネルへメッセージを送信
-        await message.channel.send(f"{message.author.mention}さん 仕方ないわね！寝ていいわよ！")  # f文字列（フォーマット済み文字列リテラル）
+        await message.channel.send(f"{message.author.name} 仕方ないわね！寝ていいわよ？おやすみ！")  # f文字列（フォーマット済み文字列リテラル）
 
     elif message.content == "!投票":
         # リアクションアイコンを付けたい

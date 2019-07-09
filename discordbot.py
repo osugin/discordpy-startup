@@ -100,8 +100,6 @@ async def on_message(message):
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await message.channel.send(m)
 
-@client.event
-async def on_message(message):
 """メンバー募集 (.rect@数字)"""
 if message.content.startswith(".rect"):
 mcount = int(message.content[6:len(message.content)])

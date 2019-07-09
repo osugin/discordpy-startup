@@ -87,7 +87,7 @@ async def on_message(message):
         # 送り主がBotだった場合反応したくないので
         if client.user != message.author:
             # メッセージを書きます
-            m = "おつかれさま！今日もよくがんばったわね！ゆっくり休むのよ！" + message.author.name + "！"
+            m = " message.author.name + " おつかれさま！今日もよくがんばったわね！ゆっくり休むのよ！！"
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await message.channel.send(m)
 

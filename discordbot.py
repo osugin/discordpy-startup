@@ -101,7 +101,7 @@ async def on_message(message):
             await message.channel.send(m)
 
 """メンバー募集 (.rect@数字)"""
-if message.content.startswith(".rect"):
+if message.content.startswith("!凸募集"):
 mcount = int(message.content[6:len(message.content)])
 text= "あと{}人 募集中\n"
 revmsg = text.format(mcount)

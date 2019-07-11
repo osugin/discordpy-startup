@@ -74,7 +74,7 @@ async def on_message(message):
 
     elif message.content == "!投票":
         # リアクションアイコンを付けたい
-        q = await message.channel.send("あなたは右利きですか？")
+        q = await message.channel.send("凸宣言はあった方がいいですか？")
         [await q.add_reaction(i) for i in ('⭕', '❌')]  # for文の内包表記
 
     elif message.content == "!おみくじ":

@@ -256,3 +256,6 @@ def primarity_test(text, k):
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
+
+
+

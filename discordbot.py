@@ -1,13 +1,10 @@
 # インストールした discord.py を読み込む
 import discord
 import random  # おみくじで使用
-import random  # diceで使用
-from discord.ext import commands
 import asyncio
 import wikipedia
 import requests
 import json
-import random
 
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'

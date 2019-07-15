@@ -13,9 +13,6 @@ import os
 from bs4 import BeautifulSoup
 
 client = discord.Client()
-################# Don't touch. ################
-kumo_san = '╭◜◝ ͡ ◜◝╮ \n(   •ω•　  ) \n╰◟◞ ͜ ◟◞╯ < '
-################# Don't touch. ################
 
 @client.event
 async def on_ready():
@@ -47,7 +44,7 @@ async def on_message(message):
             else:
                 selector = bot_salon
             print(selector)
-            msg = kumo_san + search_text
+            msg = キャルちゃん + search_text
             await client.send_message(client.get_channel(selector), msg)
             return msg
         except Exception as e:
@@ -65,7 +62,7 @@ async def on_message(message):
                 text = message.content
                 print(text)
 
-                msg =  kumo_san + user_name + 'さん '
+                msg = user_name + 'さん '
                 #msg = user_name + 'さん '
                 if text == ('キャルちゃん'):
                     msg = 'なに？なんか用？'

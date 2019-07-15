@@ -110,7 +110,7 @@ async def on_message(message):
     boss2 = "ライライ"
     boss3 = "？？？"
     boss4 = "？？？"
-    boss5 = "？？？"
+    boss5 = "オルレオン"
     roles1 = 596582248757592077
 
 
@@ -137,7 +137,7 @@ async def on_message(message):
     if message.content == "/5th":
         
         channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> ？？？") 
+        await channel.send(f"<@&{roles1}> オルレオン") 
 
 
     if message.content == "3凸終了":

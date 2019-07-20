@@ -8,7 +8,7 @@ from discord.ext import commands
 
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'
-CHANNEL_S   = 595598763377033227    # 凸状況確認
+
 CHANNEL_T   = 595598763377033227
 # user情報リスト
 memberid      = []            # クラメンのＩＤを取得するリスト
@@ -204,13 +204,6 @@ if message.content == "!凸残り":  # 凸残ってる人だけ表示する場�
         else:
             await msg.edit(content='募集終了\n'+ '\n'.join(frelist))
 
-
-    if message.content == "!凸募集状況":
-        channel = client.get_channel(CHANNEL_S)
-        if frelist:
-            await channel.send("今凸待ちの人は\n" + "さん\n".join(bosyu_list) + f"さん\nの{str(len(bosyu_list))}人よ")
-        else:
-            await channel.send("今凸待ちの人はいないようね")
 
 # クラバトについてのコード
     CHANNEL_ID = 596583155578961935

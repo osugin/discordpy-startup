@@ -6,15 +6,10 @@ from discord.ext import tasks
 from datetime import datetime
 from discord.ext import commands
 
-fincount    = 0                     # 凸終了人数カウント変数を初期値0で定義する(ここで宣言するとグローバルになって各処理から参照できます)
-bossindex   = 0
-nowboss     = 0                     # トータルで何体目のボスか？
-round       = 1                     # 周回数
-stage       = 1
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'
 CHANNEL_S   = 595598763377033227    # 凸状況確認
-roles_mem   = 596582248757592077  # 役職くらめんID
+
 # user情報リスト
 memberid      = []            # クラメンのＩＤを取得するリスト
 membername    = []            # クラメンの名前を取得するリスト
@@ -27,9 +22,6 @@ bosyu_list    = []            # 凸募集用
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
 
-
-
-
 # 起動時に動作する処理
 @client.event
 async def on_ready():
@@ -39,9 +31,6 @@ async def on_ready():
     print(client.user.id)  # ボットのID
     print(discord.__version__)  # discord.pyのバージョン
     print('------')
-
-
-
 
 # 新規メンバー参加時のイベントハンドラ
 @client.event

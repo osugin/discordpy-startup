@@ -8,8 +8,20 @@ from discord.ext import commands
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'
 
+
+# user情報リスト
+memberid      = []            # クラメンのＩＤを取得するリスト
+membername    = []            # クラメンの名前を取得するリスト
+usercount     = 0             # クラメンの人数
+totsucount    = []            # 凸数リスト
+totsunow      = []            # 今凸っているか
+simulated     = []            # 今模擬戦中か
+taskill       = []            # タスキル回数
+bosyu_list    = []            # 凸募集用
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
+
+
 
 
 # 起動時に動作する処理
@@ -21,6 +33,8 @@ async def on_ready():
     print(client.user.id)  # ボットのID
     print(discord.__version__)  # discord.pyのバージョン
     print('------')
+
+
 
 
 # 新規メンバー参加時のイベントハンドラ
@@ -190,4 +204,3 @@ async def on_message(message):
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
-

@@ -1,7 +1,10 @@
 # インストールした discord.py を読み込む
 import discord
 import random  # おみくじで使用
-
+import re       # 正規表現に必要（残り体力に使用）
+from discord.ext import tasks
+from datetime import datetime
+from discord.ext import commands
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'
 
@@ -100,6 +103,45 @@ async def on_message(message):
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await message.channel.send(m)
 
+    if message.content.startswith("!凸募集@"):
+        recruitment = int(message.content[5:])
+        text = "あと{}人 募集中\n"
+        revmsg = text.format(recruitment)
+        msg = await message.channel.send(revmsg)
+        await msg.add_reaction('\u21a9')
+        await msg.add_reaction('\u23eb')
+        while len(bosyu_list) < int(message.content[5:]):
+            reaction = await client.wait_for("reaction_add")
+            bot_reaction = reaction[0]
+            bot_member = reaction[1]
+            if bot_member != msg.author:
+                if bot_reaction.emoji == '\u21a9':
+                    if bot_member.name in bosyu_list:
+                        bosyu_list.remove(bot_member.name)
+                        recruitment += 1
+                        await msg.edit(content=text.format(recruitment) + '\n'.join(bosyu_list))
+                elif bot_reaction.emoji == '\u23eb':
+                    if bot_member.name in bosyu_list:
+                        pass
+                    else:
+                        bosyu_list.append(bot_member.name)
+                        recruitment -= 1
+                        await msg.edit(content=text.format(recruitment) + '\n'.join(bosyu_list))
+                elif bot_reaction.emoji == '✖':
+                    await msg.edit(content='募集終了\n'+ '\n'.join(bosyu_list))
+                    break
+                await msg.remove_reaction(bot_reaction.emoji, bot_member)
+        else:
+            await msg.edit(content='募集終了\n'+ '\n'.join(bosyu_list))
+
+
+    if message.content == "!凸募集状況":
+        channel = client.get_channel(CHANNEL_S)
+        if bosyu_list:
+            await channel.send("今凸待ちの人は\n" + "さん\n".join(bosyu_list) + f"さん\nの{str(len(bosyu_list))}人よ")
+        else:
+            await channel.send("今凸待ちの人はいないようね")
+
 # クラバトについてのコード
     CHANNEL_ID = 596583155578961935
     boss1 = "ワイバーン"
@@ -148,5 +190,4 @@ async def on_message(message):
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
-
 

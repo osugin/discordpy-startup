@@ -9,7 +9,7 @@ from discord.ext import commands
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'
 CHANNEL_S   = 595598763377033227    # 凸状況確認
-
+CHANNEL_T   = 595598763377033227
 # user情報リスト
 memberid      = []            # クラメンのＩＤを取得するリスト
 membername    = []            # クラメンの名前を取得するリスト
@@ -111,6 +111,65 @@ async def on_message(message):
             m = "おはよう！" + message.author.name + "今日も頑張って！"
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await message.channel.send(m)
+
+# メンバーのリストを取得して表示
+
+if message.content == '!update':
+        usercount       = 0
+        memberid        = []            # クラメンのＩＤリストを初期化する
+        membername      = []            # クラメンの名前リストを初期化する
+        totsucount      = []            # 凸数リストを初期化する
+        totsunow        = []            # 凸状況リストを初期化する
+        simulated       = []            # 模擬戦リストを初期化する
+        taskill         = []            # タスキルリストを初期化する
+       
+        for member in message.guild.members:    # user情報を全員チェックする
+            
+                    membername.append(member.name)
+                    memberid.append(member.id)
+                    totsucount.append(0)
+                    totsunow.append(0)
+                    simulated.append(0)
+                    taskill.append(0)
+                    usercount += 1                  # user数をカウントアップする
+                    i=0
+
+ if message.content == "凸":
+        # 開始報告した人を名前リストから探し、凸数を更新する
+        for i in range(usercount):                      # i=0からi=29まで30回繰り返す処理を実行する
+            if memberid[i] == message.author.id:        # 報告者とidが一致したら
+                if totsunow[i] == 0:
+                    if totsucount[i] >= 3:
+                        await message.channel.send(f"{message.author}さん、あなたの凸はもう終わりました。")
+                    else:
+                        channel = client.get_channel(CHANNEL_T)
+                        await channel.send(f"{message.author}さんが " + str(totsucount[i]+1) + "凸開始します。" )
+                        totsunow[i] = 1
+
+if message.content == "!凸残り":  # 凸残ってる人だけ表示する場合
+        tmessage1 = "1凸残りは\n"
+        tmessage2 = "2凸残りは\n"
+        tmessage3 = "3凸残りは\n"
+        tcount1 = 0
+        tcount2 = 0
+        tcount3 = 0
+        for i in range(usercount):                      # i=0からi=29まで30回繰り返す処理を実行する
+            if totsucount[i] == 2:                      # 凸回数2回なら残り1凸
+                tmessage1 += membername[i] + "さん\n"
+                tcount1 += 1
+            elif totsucount[i] == 1:                    # 凸回数1回なら残り2凸
+                tmessage2 += membername[i] + "さん\n"
+                tcount2 += 1
+            elif totsucount[i] == 0:                    # 凸回数0回なら残り3凸
+                tmessage3 += membername[i] + "さん\n"
+                tcount3 += 1
+        tmessage = [tmessage1, tmessage2, tmessage3]
+        tcountA = tcount1 + tcount2 + tcount3           #残り人数をカウントアップする
+        tcountB = tcount1 + tcount2*2 + tcount3*3       #残り凸数合計をカウントアップする
+        tmessage = tmessage1 + tmessage2 + tmessage3
+        channel = client.get_channel(CHANNEL_S)
+        await channel.send( '---[現在の残り凸状況]---' )
+        await channel.send( f'{tmessage}以上 残り{str(tcountA)}人、残り凸数合計{str(tcountB)}よ。' )
 
     if message.content.startswith("!凸募集@"):
         recruitment = int(message.content[5:])

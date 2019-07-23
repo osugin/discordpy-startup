@@ -137,42 +137,6 @@ async def on_message(message):
             await msg.edit(content='募集終了\n'+ '\n'.join(frelist))
 
 
-# クラバトについてのコード
-    CHANNEL_ID = 595598763377033227
-    boss1 = "ワイバーン"
-    boss2 = "ランドスロース"
-    boss3 = "オークチーフ"
-    boss4 = "ティタノタートル"
-    boss5 = "オルレオン"
-    roles1 = 596582248757592077
-
-
-    if message.content == "1ボス":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> ワイバーン")
-        
-    if message.content == "2ボス":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> ライライ")    
-
-    if message.content == "3ボス":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> ？？？") 
-        
-    if message.content == "4ボス":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> ？？？") 
-        
-    if message.content == "5ボス":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> オルレオン") 
-
-
     if message.content == "3凸終了":
 
         channel = client.get_channel(CHANNEL_ID)

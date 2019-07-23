@@ -103,8 +103,8 @@ async def on_message(message):
             await message.channel.send(m)
 
     if message.content.startswith("!凸募集@"):
-        recruitment = int(message.content[5:])
-        text = "あと{}人 募集中\n"
+	        recruitment = int(message.content[5:])
+	        text = "あと{}人 募集中\n"
         revmsg = text.format(recruitment)
         #friend_list 押した人のList
         frelist = []
@@ -135,11 +135,43 @@ async def on_message(message):
         else:
             await msg.edit(content='募集終了\n'+ '\n'.join(frelist))
 
-
+# クラバトについてのコード
+    CHANNEL_ID = 596583155578961935
+    boss1 = "ワイバーン"
+    boss2 = "ライライ"
+    boss3 = "？？？"
+    boss4 = "？？？"
+    boss5 = "オルレオン"
+    roles1 = 596582248757592077
+    if message.content == "/1st":
+        
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send(f"<@&{roles1}> ワイバーン")
+        
+    if message.content == "/2nd":
+        
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send(f"<@&{roles1}> ライライ")    
+    if message.content == "/3rd":
+        
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send(f"<@&{roles1}> ？？？") 
+        
+    if message.content == "/4th":
+        
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send(f"<@&{roles1}> ？？？") 
+        
+    if message.content == "/5th":
+        
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send(f"<@&{roles1}> オルレオン") 
     if message.content == "3凸終了":
-
         channel = client.get_channel(CHANNEL_ID)
         await channel.send(f"本日の{message.author.name}さんの凸は終了です、お疲れ様でした")
-
+    elif message.content == "!ダイレクトメッセージ":
+        # ダイレクトメッセージ送信
+        dm = await message.author.create_dm()
+        await dm.send(f"{message.author.mention}さんにダイレクトメッセージ") 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)

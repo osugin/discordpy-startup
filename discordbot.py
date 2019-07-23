@@ -138,7 +138,7 @@ async def on_message(message):
 
 
 # クラバトについてのコード
-    CHANNEL_ID = 596583155578961935
+    CHANNEL_ID = 595598763377033227
     boss1 = "ワイバーン"
     boss2 = "ランドスロース"
     boss3 = "オークチーフ"

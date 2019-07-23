@@ -166,12 +166,15 @@ async def on_message(message):
         
         channel = client.get_channel(CHANNEL_ID)
         await channel.send(f"<@&{roles1}> オルレオン") 
-    if message.content == "3凸終了":
+    
+
+if message.content == "3凸終了":
         channel = client.get_channel(CHANNEL_ID)
         await channel.send(f"本日の{message.author.name}さんの凸は終了です、お疲れ様でした")
     elif message.content == "!ダイレクトメッセージ":
         # ダイレクトメッセージ送信
         dm = await message.author.create_dm()
         await dm.send(f"{message.author.mention}さんにダイレクトメッセージ") 
+
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)

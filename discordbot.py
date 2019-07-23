@@ -8,7 +8,6 @@ from discord.ext import commands
 
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'
-CHANNEL_T   = 595598763377033227
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -141,11 +140,6 @@ async def on_message(message):
 
         channel = client.get_channel(CHANNEL_ID)
         await channel.send(f"本日の{message.author.name}さんの凸は終了です、お疲れ様でした")
-
-    elif message.content == "!ダイレクトメッセージ":
-        # ダイレクトメッセージ送信
-        dm = await message.author.create_dm()
-        await dm.send(f"{message.author.mention}さんにダイレクトメッセージ") 
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)

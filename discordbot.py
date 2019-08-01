@@ -1,10 +1,6 @@
 # インストールした discord.py を読み込む
 import discord
 import random  # おみくじで使用
-import re       # 正規表現に必要（残り体力に使用）
-from discord.ext import tasks
-from datetime import datetime
-from discord.ext import commands
 
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'

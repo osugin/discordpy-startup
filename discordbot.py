@@ -3,7 +3,7 @@ import discord
 import random  # おみくじで使用
 
 # 自分のBotのアクセストークンに置き換えてください
-TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XRx3gA.TwsckxcaLz-94u72JC_CkJO04EI'
+TOKEN = 'NTk1ODEzMzUxODc1OTM2MjY5.XUTknA.ImhJQ26xQIBeCgwzYOSyYz4NqLc'
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -133,36 +133,6 @@ async def on_message(message):
 
 # クラバトについてのコード
     CHANNEL_ID = 596583155578961935
-    boss1 = "ワイバーン"
-    boss2 = "ライライ"
-    boss3 = "？？？"
-    boss4 = "？？？"
-    boss5 = "オルレオン"
-    roles1 = 596582248757592077
-    if message.content == "/1st":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> ワイバーン")
-        
-    if message.content == "/2nd":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> ライライ")    
-    if message.content == "/3rd":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> ？？？") 
-        
-    if message.content == "/4th":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> ？？？") 
-        
-    if message.content == "/5th":
-        
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"<@&{roles1}> オルレオン") 
-    
 
 if message.content == "3凸終了":
         channel = client.get_channel(CHANNEL_ID)

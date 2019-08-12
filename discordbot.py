@@ -98,49 +98,7 @@ async def on_message(message):
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await message.channel.send(m)
 
-    if message.content.startswith("!凸募集@"):
-	        recruitment = int(message.content[5:])
-	        text = "あと{}人 募集中\n"
-        revmsg = text.format(recruitment)
-        #friend_list 押した人のList
-        frelist = []
-        msg = await message.channel.send(revmsg)
-        await msg.add_reaction('\u21a9')
-        await msg.add_reaction('\u23eb')
-        while len(frelist) < int(message.content[5:]):
-            reaction = await client.wait_for("reaction_add")
-            bot_reaction = reaction[0]
-            bot_member = reaction[1]
-            if bot_member != msg.author:
-                if bot_reaction.emoji == '\u21a9':
-                    if bot_member.name in frelist:
-                        frelist.remove(bot_member.name)
-                        recruitment += 1
-                        await msg.edit(content=text.format(recruitment) + '\n'.join(frelist))
-                elif bot_reaction.emoji == '\u23eb':
-                    if bot_member.name in frelist:
-                        pass
-                    else:
-                        frelist.append(bot_member.name)
-                        recruitment -= 1
-                        await msg.edit(content=text.format(recruitment) + '\n'.join(frelist))
-                elif bot_reaction.emoji == '✖':
-                    await msg.edit(content='募集終了\n'+ '\n'.join(frelist))
-                    break
-                await msg.remove_reaction(bot_reaction.emoji, bot_member)
-        else:
-            await msg.edit(content='募集終了\n'+ '\n'.join(frelist))
 
-# クラバトについてのコード
-    CHANNEL_ID = 596583155578961935
-
-if message.content == "3凸終了":
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send(f"本日の{message.author.name}さんの凸は終了です、お疲れ様でした")
-    elif message.content == "!ダイレクトメッセージ":
-        # ダイレクトメッセージ送信
-        dm = await message.author.create_dm()
-        await dm.send(f"{message.author.mention}さんにダイレクトメッセージ") 
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
